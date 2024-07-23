@@ -7,7 +7,7 @@
 using namespace std;
 typedef pair<int, int> P;
 typedef pair<int, pair<int, int>> PP;
-void dikjstraforCountMinStations(int source, vector<vector<int>> &adj, int destination, vector<string> &stations)
+void dijkstraforCountMinStations(int source, vector<vector<int>> &adj, int destination, vector<string> &stations)
 {
     priority_queue<P, vector<P>, greater<P>> pq;
     pq.push({0, source});
@@ -43,7 +43,7 @@ void dikjstraforCountMinStations(int source, vector<vector<int>> &adj, int desti
     }
 }
 
-void dikjstraforPrintsStations(int source, int destination, vector<vector<int>> &adj, vector<string> &stations, vector<bool> &changeTrain)
+void dijkstraforPrintsStations(int source, int destination, vector<vector<int>> &adj, vector<string> &stations, vector<bool> &changeTrain)
 {
     int station = adj.size(); // No of stations
     vector<int> result(station, INT_MAX);
@@ -280,7 +280,7 @@ again:
         goto again;
     }
 
-    dikjstraforCountMinStations(source, adj, destination, stations);
-    dikjstraforPrintsStations(source, destination, adj, stations, changeTrain);
+    dijkstraforCountMinStations(source, adj, destination, stations);
+    dijkstraforPrintsStations(source, destination, adj, stations, changeTrain);
     return 0;
 }
